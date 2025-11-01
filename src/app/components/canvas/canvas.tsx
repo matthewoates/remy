@@ -1,19 +1,58 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import {
   ReactFlow,
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
+  Node,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
+import features from "@/app/demo_data/features";
+import companies from "@/app/demo_data/companies";
 
-const initialNodes = [
-  { id: "n1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
-  { id: "n2", position: { x: 0, y: 100 }, data: { label: "Node 2" } },
-];
+// const initialNodes = [
+//   { id: "n1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
+//   { id: "n2", position: { x: 0, y: 100 }, data: { label: "Node 2" } },
+// ];
+const initialNodes: Node[] = [];
+
+companies.forEach((company, i) => {
+  initialNodes.push({
+    id: company.id,
+    data: {
+      label: company.name,
+    },
+    position: { x: 0, y: i * 50 },
+  });
+});
+
+features.forEach((feature, i) => {
+  initialNodes.push({
+    id: feature.id,
+    data: {
+      label: feature.shortDescription,
+    },
+    position: { x: 300, y: i * 50 },
+  });
+});
+
 const initialEdges = [{ id: "n1-n2", source: "n1", target: "n2" }];
+
+function makeEdge(source: string, target: string) {
+  return {
+    id: `${source}-${target}`,
+    source,
+    target,
+  };
+}
+
+companies.forEach((company) => {
+  company.coreFeatures.forEach((featureID) => {
+    initialEdges.push(makeEdge(company.id, featureID));
+  });
+});
 
 function Canvas() {
   const [nodes, setNodes] = useState(initialNodes);
@@ -24,6 +63,7 @@ function Canvas() {
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        defaultEdgeOptions={{ type: "straight" }}
         onNodesChange={(changes) =>
           setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot))
         }

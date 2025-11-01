@@ -1,6 +1,7 @@
 type FeatureIDType = string;
 
 export type CompanyType = {
+  id: string;
   name: string;
   shortDescription: string;
   estimatedUserCount: number;

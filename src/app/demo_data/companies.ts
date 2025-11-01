@@ -2,6 +2,7 @@ import type { CompanyType } from "../types";
 
 const companies: CompanyType[] = [
   {
+    id: "Board Game Arena",
     name: "Board Game Arena",
     shortDescription:
       "The largest online board game platform with 500+ licensed titles, supporting play on browser and mobile.",
@@ -16,6 +17,7 @@ const companies: CompanyType[] = [
     ],
   },
   {
+    id: "Dire Wolf Digital",
     name: "Dire Wolf Digital",
     shortDescription:
       "Renowned developer of premium board game apps featuring digital adaptations of top modern classics.",
@@ -29,6 +31,7 @@ const companies: CompanyType[] = [
     ],
   },
   {
+    id: "Dized (Playmore Games)",
     name: "Dized (Playmore Games)",
     shortDescription:
       "Specializes in interactive tutorials and rulebook apps, partnering with publishers for classic and new board games.",
@@ -42,6 +45,7 @@ const companies: CompanyType[] = [
     ],
   },
   {
+    id: "BG Stats",
     name: "BG Stats",
     shortDescription:
       "The most popular board game stat tracking app, integrating with BoardGameGeek to log play history and statistics.",
