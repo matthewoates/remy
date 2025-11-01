@@ -1,3 +1,15 @@
+# Remy Take Home
+
+This is a full stack application which aims to assist the user in differentiating the features that their product offers vs competitors.
+
+- [ ] Find top competitors
+- [ ] Find info on cometitors
+  - [ ] User count, revenue, top features
+- [ ] User can detail their features
+- [ ] AI weighs in on which features are unique
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
