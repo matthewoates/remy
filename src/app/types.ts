@@ -10,5 +10,6 @@ export type CompanyType = {
 
 export type FeatureType = {
   id: string;
+  shortDescription: string;
   description: string;
 };
