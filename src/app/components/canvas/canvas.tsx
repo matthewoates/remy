@@ -11,14 +11,21 @@ import {
 import "@xyflow/react/dist/style.css";
 import features from "@/app/demo_data/features";
 import companies from "@/app/demo_data/companies";
+import CompanyNode from "./nodes/CompanyNode";
+
+const nodeTypes = {
+  company: CompanyNode,
+};
 
 const initialNodes: Node[] = [];
 
 companies.forEach((company, i) => {
   initialNodes.push({
     id: company.id,
+    type: "company",
     data: {
       label: company.name,
+      ...company,
     },
     position: { x: i * 180, y: 0 },
   });
@@ -57,6 +64,7 @@ function Canvas() {
   return (
     <div style={{ width: "100vw", height: "100vh", color: "black" }}>
       <ReactFlow
+        nodeTypes={nodeTypes}
         nodes={nodes}
         edges={edges}
         defaultEdgeOptions={{ type: "straight" }}
