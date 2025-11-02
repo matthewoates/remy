@@ -12,10 +12,6 @@ import "@xyflow/react/dist/style.css";
 import features from "@/app/demo_data/features";
 import companies from "@/app/demo_data/companies";
 
-// const initialNodes = [
-//   { id: "n1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
-//   { id: "n2", position: { x: 0, y: 100 }, data: { label: "Node 2" } },
-// ];
 const initialNodes: Node[] = [];
 
 companies.forEach((company, i) => {
@@ -24,7 +20,7 @@ companies.forEach((company, i) => {
     data: {
       label: company.name,
     },
-    position: { x: 0, y: i * 50 },
+    position: { x: i * 180, y: 0 },
   });
 });
 
@@ -34,7 +30,7 @@ features.forEach((feature, i) => {
     data: {
       label: feature.shortDescription,
     },
-    position: { x: 300, y: i * 50 },
+    position: { x: i * 180, y: 300 },
   });
 });
 
